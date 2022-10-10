@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Projeto de Programação Front-end">
+    <meta name="author" content="Iago,Guilherme,Denilson">
+
+    <!-- Meta tag responsiva: para garantir renderização adequada e touch zooming em todos eletrônicos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <style>
+   
+      *{
+	      margin:0;
+        padding:0;
+        font-family:'Arial';
+	    }
+      body{
+        background-color: #3f48cc;
+      }
+      /* Começo do menu da tela inicial*/
+      .menu{
+        width:100%;
+        height:55px;
+        padding-top: 1px;
+        background-color: rgb(0, 0, 0);
+        color: #FFF;
+        }
+      .menu>ul{
+        list-style:none;	
+        position:relative;
+        margin-left:50px;
+        z-index: 2;
+        }
+      .menu ul li{
+          width:150px;
+          float:left;
+        }
+      .menu a{
+        padding:15px;
+        display:block;
+        text-decoration: none;
+        background-color: rgb(0, 0, 0);
+        text-align:center;
+        }
+      .menu ul ul{
+        list-style:none;
+        position:absolute;
+        visibility:hidden;
+        
+        }
+      .menu ul li:hover ul{
+        visibility:visible;
+        }
+        
+      .menu a:hover{
+        background-color:rgb(10, 31, 100);
+        }
+
+      .menu ul ul li{
+        float:none;
+        border-bottom: solid 1px rgb(0, 0, 0);
+        }
+      .menu ul ul li a{
+        background-color:rgb(10, 31, 100);
+        }
+      @media (max-width: 800px) {
+      .menu{
+        transition:all .4s;
+        text-align: center;
+        }
+      label[for='bt_menu']{
+        display:block;
+        }
+      .menu ul{
+        margin-left:0;
+        text-align: center;
+        }
+      .menu{
+        margin-top:5px;
+        text-align: center;
+        }
+      .menu ul li{
+        width:100%;
+        float:none;
+        text-align: center;
+        }
+      .menu ul ul{
+        position:static;
+        overflow:hidden;
+        max-height:0;
+        transition:all .4s;
+        text-align: center;
+        }
+      .menu ul li:hover ul{
+        height:auto;
+        max-height:200px;
+        transition:all .4s;
+        text-align: center;
+        }
+      #bt_menu:checked ~ .menu{
+        margin-left:0;
+        text-align: center;
+        }
+      }
+        /*MATA MATA*/
+        .tabela_jogos_content_mata_mata{
+            position:absolute;
+            left:33%;
+            top:20%;
+        }
+        .mata_mata_bg{
+            background: transparent url("https://infograficos.estadao.com.br/esportes/teste-copa/img/fase_mata_mata_bg.png") no-repeat;
+            width: 671px;
+            height: 350px;
+        }
+
+        .mata_mata_title{
+            font-weight: 700;
+            width: 71px;
+            font-size: 14px;
+            line-height: 18px;
+            color: #000;
+        }
+
+        .mata_mata_x{
+            font-weight: 700;
+            width: 71px;
+            text-align: center;
+            font-size: 14px;
+            line-height: 18px;
+            color: #000;
+        }
+
+        .mata_mata_espaco_oitavas{
+            margin: 0 0 40px 0;
+        }
+
+        .mata_mata_espaco_quartas{
+            margin: 20px 0 75px 0;
+        }
+
+        .mata_mata_espaco_semi{
+            margin: 65px 0 170px 0;
+        }
+
+        .mata_mata_espaco_final{
+            margin: 85px 0 170px 0;
+        }
+
+        .mata_mata_coluna_mata_mata{
+            width: 71px;
+            float: left;
+            margin: 0 29px 20px 0;
+        }
+
+        .mata_mata_coluna_mata_mata_ultima{
+            width: 71px;
+            float: left;
+            margin: 0 0 20px 0;
+        }
+
+        a.mata_mata_lacunas{
+            display: block;
+            width: 71px;
+            height: 18px;
+            background-color: #ffffff;
+        }
+
+        a.mata_mata_lacunas:hover{
+            background-color: rgb(238, 255, 0);
+        }
+        #tabela1{
+            float: right;
+            margin-top: 100px;
+            box-shadow: rgba(0, 0, 0, 0.4) -5px 5px, rgba(0, 0, 0, 0.3) -10px 10px, rgba(0, 0, 0, 0.2) -15px 15px, rgba(0, 0, 0, 0.1) -20px 20px, rgba(0, 0, 0, 0.05) -25px 25px;
+        }
+        #tabela2{
+            float: left;
+            margin-top: 100px;
+            box-shadow: rgba(0, 0, 0, 0.4) 5px 5px, rgba(0, 0, 0, 0.3) 10px 10px, rgba(0, 0, 0, 0.2) 15px 15px, rgba(0, 0, 0, 0.1) 20px 20px, rgba(0, 0, 0, 0.05) 25px 25px;
+            
+        }
+        .mata_mata_lacunas{
+            text-align: center;
+            text-shadow: #000 1px 1px 1px;
+            font-family: sans-serif;
+            color: #000;
+            font-size: small;
+        }
+        .rodape{
+            width: 100%;
+            position:absolute;
+            bottom: 0;
+            left: 0;
+            border: black solid 1px;
+            background-color: black;
+            text-align: center;
+            color: white;
+        }
+        h1{
+          text-align: left;   
+          margin: auto;
+          width: 100%;
+          border: 3px solid #10502f;
+          padding: 10px;
+          background-color: #10502f;
+          font-family: Helvetica;
+          font-size: small;
+          color: black;
+          text-align: left;
+        }
+</style>
+
+<title>Futebol News</title>
+
+</head>
+
+<body>
+    <!------------INICIO DO MENU DE NAVEGAÇÃO - FIXO -------------------->
+<div>
+    <nav class="menu">
+    <ul>
+        <li><a href="home.html">Notícias</a></li>
+        <li><a href="#">Campeonatos</a>
+            <ul>
+                <li><a href="serieA.html">Série A</a></li>
+                <li><a href="serieB.html">Série B</a></li>
+      <li><a href="copadobrasil.html">Copa do Brasil</a></li>
+      <li><a href="estadual.html">Estadual</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Times</a>
+            <ul>
+              <li><a href="https://www.botafogo.com.br/futebol.php">Botafogo</a></li>
+              <li><a href="https://www.fluminense.com.br/noticias">Fluminense</a></li>
+              <li><a href="https://www.flamengo.com.br/noticias/futebol">Flamengo</a></li>
+              <li><a href="https://vasco.com.br/noticias/">Vasco</a></li>
+            </ul>
+        </li>
+        <li><a href="contato.html">Contato</a></li>
+    </ul>
+    </nav>
+    </div>
+ <!------------"TABELA" DO MATA MATA -------------------->
+ <H1><img id="logo"src="imagens/selecaobr.png" widht="50" height="50px">COPA DO BRASIL</H1>
+<div id="conteudo">
+		
+		<div class="tabela_jogos_content_mata_mata">
+			
+			<div class="tabela_jogos mata_mata_bg">
+				
+				<div class="mata_mata_coluna_mata_mata">
+					<div class="mata_mata_espaco_oitavas">
+						<div class="mata_mata_title" id="oitavas_esq">Oitavas</div>
+						<a href="" class="mata_mata_lacunas" id="mata_mata_1">COR</a>
+						<div class="mata_mata_x">X</div>
+						<a href="" class="mata_mata_lacunas" id="mata_mata_2">SAN</a>
+					</div>
+
+					<div class="mata_mata_espaco_oitavas">
+						<a href="" class="mata_mata_lacunas" id="mata_mata_3">GOI</a>
+						<div class="mata_mata_x">X</div>
+						<a href="" class="mata_mata_lacunas" id="mata_mata_4">ATG</a>
+					</div>
+					<div class="mata_mata_espaco_oitavas">
+						<a href="" class="mata_mata_lacunas" id="mata_mata_5">FOR</a>
+						<div class="mata_mata_x">X</div>
+						<a href="" class="mata_mata_lacunas" id="mata_mata_6">CEA</a>
+					</div>
+
+					<div class="mata_mata_espaco_oitavas">
+						<a href="" class="mata_mata_lacunas" id="mata_mata_7">FLU</a>
+						<div class="mata_mata_x">X</div>
+						<a href="" class="mata_mata_lacunas" id="mata_mata_8">CRU</a>
+					</div>
+				</div>
+
+				<div class="mata_mata_coluna_mata_mata">
+					<div class="mata_mata_espaco_quartas">
+						<div class="mata_mata_title mata_mata_espaco_quartas" id="oitavas_esq">Quartas
+							<a href="" class="mata_mata_lacunas" id="mata_mata_9">COR</a></div>
+						<div class="mata_mata_espaco_quartas" id="oitavas_esq">
+							<a href="" class="mata_mata_lacunas" id="mata_mata_10">ATG</a>
+						</div>
+					</div>
+					<div class="mata_mata_espaco_quartas">
+						<div class="mata_mata_title mata_mata_espaco_quartas" id="oitavas_esq">
+							<a href="" class="mata_mata_lacunas" id="mata_mata_11">FOR</a></div>
+						<div class="mata_mata_espaco_quartas" id="oitavas_esq">
+							<a href="" class="mata_mata_lacunas" id="mata_mata_12">FLU</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="mata_mata_coluna_mata_mata">
+					<div class="mata_mata_espaco_semi">
+						<div class="mata_mata_title mata_mata_espaco_semi" id="oitavas_esq">Semifinal
+							<a href="" class="mata_mata_lacunas" id="mata_mata_13"></a></div>
+						<div class="mata_mata_espaco_semi" id="oitavas_esq">
+							<a href="" class="mata_mata_lacunas" id="mata_mata_14"></a>
+						</div>
+					</div>
+				</div>
+
+				<div class="mata_mata_coluna_mata_mata">
+					<div class="mata_mata_espaco_final">
+						<div class="mata_mata_espaco_oitavas">
+							<div class="mata_mata_title" id="oitavas_esq">Final</div>
+							<a href="" class="mata_mata_lacunas" id="mata_mata_15"></a>
+							<div class="mata_mata_x">X</div>
+							<a href="" class="mata_mata_lacunas" id="mata_mata_16"></a>
+						</div>
+						<div class="mata_mata_espaco_oitavas">
+							<div class="mata_mata_title" id="oitavas_esq">3º lugar</div>
+							<a href="" class="mata_mata_lacunas" id="mata_mata_17"></a>
+							<div class="mata_mata_x">X</div>
+							<a href="" class="mata_mata_lacunas" id="mata_mata_18"></a>
+						</div>
+					</div>
+				</div>
+
+				<div class="mata_mata_coluna_mata_mata">
+					<div class="mata_mata_espaco_semi">
+						<div class="mata_mata_title mata_mata_espaco_semi" id="oitavas_esq">Semifinal
+							<a href="" class="mata_mata_lacunas" id="mata_mata_19"></a></div>
+						<div class="mata_mata_espaco_semi" id="oitavas_esq">
+							<a href="" class="mata_mata_lacunas" id="mata_mata_20"></a>
+						</div>
+					</div>
+				</div>
+
+				<div class="mata_mata_coluna_mata_mata">
+					<div class="mata_mata_espaco_quartas">
+						<div class="mata_mata_title mata_mata_espaco_quartas" id="oitavas_esq">Quartas
+							<a href="" class="mata_mata_lacunas" id="mata_mata_21">SAO</a></div>
+						<div class="mata_mata_espaco_quartas" id="oitavas_esq">
+							<a href="" class="mata_mata_lacunas" id="mata_mata_22">AMG</a>
+						</div>
+					</div>
+					<div class="mata_mata_espaco_quartas">
+						<div class="mata_mata_title mata_mata_espaco_quartas" id="oitavas_esq">
+							<a href="" class="mata_mata_lacunas" id="mata_mata_23">FLA</a></div>
+						<div class="mata_mata_espaco_quartas" id="oitavas_esq">
+							<a href="" class="mata_mata_lacunas" id="mata_mata_24">ATH</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="mata_mata_coluna_mata_mata_ultima">
+					<div class="mata_mata_espaco_oitavas">
+						<div class="mata_mata_title" id="oitavas_esq">Oitavas</div>
+						<a href="" class="mata_mata_lacunas" id="mata_mata_25">SAO</a>
+						<div class="mata_mata_x">X</div>
+						<a href="" class="mata_mata_lacunas" id="mata_mata_26">PAL</a>
+					</div>
+
+					<div class="mata_mata_espaco_oitavas">
+						<a href="" class="mata_mata_lacunas" id="mata_mata_27">AMG</a>
+						<div class="mata_mata_x">X</div>
+						<a href="" class="mata_mata_lacunas" id="mata_mata_28">BOT</a>
+					</div>
+					<div class="mata_mata_espaco_oitavas">
+						<a href="" class="mata_mata_lacunas" id="mata_mata_29">FLA</a>
+						<div class="mata_mata_x">X</div>
+						<a href="" class="mata_mata_lacunas" id="mata_mata_30">ATM</a>
+					</div>
+
+					<div class="mata_mata_espaco_oitavas">
+						<a href="" class="mata_mata_lacunas" id="mata_mata_31">ATH</a>
+						<div class="mata_mata_x">X</div>
+						<a href="" class="mata_mata_lacunas" id="mata_mata_32">BAH</a>
+					</div>
+				</div>
+				
+
+			</div>
+		</div>
+			
+	</div>
+    <img src="imagens/tabela1.png" id="tabela1" width="250" height="250">
+    <img src="imagens/tabela2.png" id="tabela2" width="250" height="245">
+    <!------------FOOTER -------------------->
+<!------------FOOTER -------------------->
+<div class="rodape">
+  <footer>
+    <img src="../Projeto Final/imagens/paz1.png" width="100px" height="100px">
+      <p>&copy; Todos os direitos reservados</p>
+  </footer>
+  </div>
+</body>
+</html>

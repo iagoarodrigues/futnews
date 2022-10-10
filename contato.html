@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Projeto de Programação Front-end">
+    <meta name="author" content="Iago,Guilherme,Denilson">
+
+    <!-- Meta tag responsiva: para garantir renderização adequada e touch zooming em todos eletrônicos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <style>
+   
+      *{
+	      margin:0;
+        padding:0;
+        font-family:'Arial';
+	    }
+      body{
+        background-color: rgba(252, 239, 239, 0.704);
+      }
+      /* Começo do menu da tela inicial*/
+      .menu{
+        width:100%;
+        height:55px;
+        padding-top: 1px;
+        background-color: rgb(0, 0, 0);
+        color: #FFF;
+        }
+	
+      .menu>ul{
+        list-style:none;	
+        position:relative;
+        margin-left:50px;
+        z-index: 2;
+        }
+      .menu ul li{
+          width:150px;
+          float:left;
+        }
+
+      .menu a{
+        padding:15px;
+        display:block;
+        text-decoration: none;
+        background-color: rgb(0, 0, 0);
+        text-align:center;
+        }
+      .menu ul ul{
+        list-style:none;
+        position:absolute;
+        visibility:hidden;
+        
+        }
+      .menu ul li:hover ul{
+        visibility:visible;
+        }
+        
+      .menu a:hover{
+        background-color:rgb(10, 31, 100);
+        }
+
+      .menu ul ul li{
+        float:none;
+        border-bottom: solid 1px rgb(0, 0, 0);
+        }
+      .menu ul ul li a{
+        background-color:rgb(10, 31, 100);
+        }
+      @media (max-width: 800px) {
+      .menu{
+        transition:all .4s;
+        text-align: center;
+        }
+      label[for='bt_menu']{
+        display:block;
+        }
+      .menu ul{
+        margin-left:0;
+        text-align: center;
+        }
+      .menu{
+        margin-top:5px;
+        text-align: center;
+        }
+      .menu ul li{
+        width:100%;
+        float:none;
+        text-align: center;
+        }
+      .menu ul ul{
+        position:static;
+        overflow:hidden;
+        max-height:0;
+        transition:all .4s;
+        text-align: center;
+        }
+      .menu ul li:hover ul{
+        height:auto;
+        max-height:200px;
+        transition:all .4s;
+        text-align: center;
+        }
+      #bt_menu:checked ~ .menu{
+        margin-left:0;
+        text-align: center;
+        }
+      }
+          
+            /* Google Font CDN Link */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins" , sans-serif;
+      }
+      .container{
+        width: 85%;
+        background: rgb(10, 31, 100);
+        border-radius: 6px;
+        padding: 20px 60px 30px 40px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        margin-top: 100px;
+        margin-bottom: 300px;
+      }
+      .container .content{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .container .content .left-side{
+        width: 25%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 15px;
+        position: relative;
+      }
+      .content .left-side::before{
+        content: '';
+        position: absolute;
+        height: 70%;
+        width: 2px;
+        right: -15px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #000000;
+      }
+      .content .left-side .details{
+        margin: 14px;
+        text-align: center;
+      }
+      .content .left-side .details i{
+        font-size: 30px;
+        color: #000000;
+        margin-bottom: 10px;
+      }
+      .content .left-side .details .topic{
+        font-size: 18px;
+        font-weight: 500;
+      }
+      .content .left-side .details .text-one,
+      .content .left-side .details .text-two{
+        font-size: 14px;
+        color: #ffffff;
+      }
+       #prg{
+        color: black;
+      }
+      .topic{
+        color: black;
+      }
+
+      .container .content .right-side{
+        width: 75%;
+        margin-left: 75px;
+      }
+      .content .right-side .topic-text{
+        font-size: 23px;
+        font-weight: 600;
+        color: #fefdff;
+      }
+      .right-side .input-box{
+        height: 50px;
+        width: 100%;
+        margin: 12px 0;
+      }
+      .right-side .input-box input,
+      .right-side .input-box textarea{
+        height: 100%;
+        width: 100%;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        background: #ffffff;
+        border-radius: 6px;
+        padding: 0 15px;
+        resize: none;
+      }
+      .right-side .message-box{
+        min-height: 110px;
+      }
+      .right-side .input-box textarea{
+        padding-top: 6px;
+      }
+      .right-side .button{
+        display: inline-block;
+        margin-top: 12px;
+      }
+      .right-side .button input[type="button"]{
+        color: rgb(255, 255, 255);
+        font-size: 18px;
+        outline: none;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 6px;
+        background:  rgba(0, 21, 92, 0.815);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .button input[type="button"]:hover{
+        background: #ff9100;
+      }
+
+      @media (max-width: 950px) {
+        .container{
+          width: 90%;
+          padding: 30px 40px 40px 35px ;
+        }
+        .container .content .right-side{
+        width: 75%;
+        margin-left: 55px;
+      }
+      }
+      @media (max-width: 820px) {
+        .container{
+          margin: 40px 0;
+          height: 100%;
+        }
+        .container .content{
+          flex-direction: column-reverse;
+        }
+      .container .content .left-side{
+        width: 100%;
+        flex-direction: row;
+        margin-top: 40px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .container .content .left-side::before{
+        display: none;
+      }
+      .container .content .right-side{
+        width: 100%;
+        margin-left: 0;
+      }
+      }
+      .rodape{
+        width: 100%;
+        position: static;
+        bottom: 0;
+        left: 0;
+        padding: 10px;
+        border: black solid 1px;
+        background-color: black;
+        text-align: center;
+        color: white;
+        }
+    </style>
+  </head>
+  <body>
+    <div>
+      <nav class="menu">
+      <ul>
+          <li><a href="home.html">Notícias</a></li>
+          <li><a href="#">Campeonatos</a>
+              <ul>
+                  <li><a href="serieA.html">Série A</a></li>
+                  <li><a href="serieB.html">Série B</a></li>
+        <li><a href="copadobrasil.html">Copa do Brasil</a></li>
+        <li><a href="estadual.html">Estadual</a></li>
+              </ul>
+          </li>
+          <li><a href="#">Times</a>
+              <ul>
+                <li><a href="https://www.botafogo.com.br/futebol.php">Botafogo</a></li>
+                <li><a href="https://www.fluminense.com.br/noticias">Fluminense</a></li>
+                <li><a href="https://www.flamengo.com.br/noticias/futebol">Flamengo</a></li>
+                <li><a href="https://vasco.com.br/noticias/">Vasco</a></li>
+              </ul>
+          </li>
+          <li><a href="contato.html">Contato</a></li>
+      </ul>
+      </nav>
+      </div>
+    <div class="container">
+      <div class="content">
+        <div class="left-side">
+          <div class="address details">
+            <i class="fas fa-map-marker-alt"></i>
+            <div class="topic">Endereço</div>
+            <div class="text-one">R. Srg. Silva Nunes, 1012 - Nova Holanda, - RJ, 21044-242</div>
+            <div class="text-two"> Rio de Janeiro</div>
+          </div>
+          <div class="phone details">
+            <i class="fas fa-phone-alt"></i>
+            <div class="topic">Telefone</div>
+            <div class="text-one">+55 21 4002 8922</div>
+            <div class="text-two">+55 21 1460 4793</div>
+          </div>
+          <div class="email details">
+            <i class="fas fa-envelope"></i>
+            <div class="topic">Email</div>
+            <div class="text-one">programaçao.front-end@gmail.com</div>
+            <div class="text-two">redesmare@gmail.com</div>
+          </div>
+        </div>
+        <div class="right-side">
+          <div class="topic-text">Envie sua mensagem</div>
+          <p id="prg">
+            Se você tiver algum trabalho ou qualquer tipo de dúvida, entre em contato conosco.
+          </p>
+          <form action="#">
+            <div class="input-box">
+              <input type="text" placeholder="Digite seu nome" />
+            </div>
+            <div class="input-box">
+              <input type="text" placeholder="Digite seu email" />
+            </div>
+            <div class="input-box message-box">
+              <textarea placeholder="Digite sua mensagem"></textarea>
+            </div>
+            <div class="button">
+              <input type="button" value="Enviar" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="rodape">
+      <footer>
+        <img src="../Projeto Final/imagens/paz1.png" width="250px" height="250px">
+          <p>&copy; Todos os direitos reservados</p>
+      </footer>
+  </body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Projeto de Programação Front-end">
+    <meta name="author" content="Iago,Guilherme,Denilson">
+
+    <!-- Meta tag responsiva: para garantir renderização adequada e touch zooming em todos eletrônicos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <style>
+   
+      *{
+	      margin:0;
+        padding:0;
+        font-family:'Arial';
+	    }
+      body{
+        background-color: rgba(252, 239, 239, 0.704);
+      }
+      /* Começo do menu da tela inicial*/
+      .menu{
+        width:100%;
+        height:55px;
+        padding-top: 1px;
+        background-color: rgb(0, 0, 0);
+        color: #FFF;
+        }
+	
+      .menu>ul{
+        list-style:none;	
+        position:relative;
+        margin-left:50px;
+        z-index: 2;
+        }
+      .menu ul li{
+          width:150px;
+          float:left;
+        }
+
+      .menu a{
+        padding:15px;
+        display:block;
+        text-decoration: none;
+        background-color: rgb(0, 0, 0);
+        text-align:center;
+        }
+      .menu ul ul{
+        list-style:none;
+        position:absolute;
+        visibility:hidden;
+        
+        }
+      .menu ul li:hover ul{
+        visibility:visible;
+        }
+        
+      .menu a:hover{
+        background-color:rgb(10, 31, 100);
+        }
+
+      .menu ul ul li{
+        float:none;
+        border-bottom: solid 1px rgb(0, 0, 0);
+        }
+      .menu ul ul li a{
+        background-color:rgb(10, 31, 100);
+        }
+      @media (max-width: 800px) {
+      .menu{
+        transition:all .4s;
+        text-align: center;
+        }
+      label[for='bt_menu']{
+        display:block;
+        }
+      .menu ul{
+        margin-left:0;
+        text-align: center;
+        }
+      .menu{
+        margin-top:5px;
+        text-align: center;
+        }
+      .menu ul li{
+        width:100%;
+        float:none;
+        text-align: center;
+        }
+      .menu ul ul{
+        position:static;
+        overflow:hidden;
+        max-height:0;
+        transition:all .4s;
+        text-align: center;
+        }
+      .menu ul li:hover ul{
+        height:auto;
+        max-height:200px;
+        transition:all .4s;
+        text-align: center;
+        }
+      #bt_menu:checked ~ .menu{
+        margin-left:0;
+        text-align: center;
+        }
+      }
+      td{
+            padding: 3px;
+        }
+        img{
+            padding:6px 6px;
+            padding-bottom: 1px;
+        }
+        #teste{
+            text-align: left;
+        }
+        .rodape{
+        width: 100%;
+        position: static;
+        bottom: 0;
+        left: 0;
+        padding: 10px;
+        border: black solid 1px;
+        background-color: black;
+        text-align: center;
+        color: white;
+        }
+        h1{
+          text-align: left;   
+          margin: auto;
+          width: 100%;
+          border: 3px solid #180d35;
+          padding: 10px;
+          background-color: #180d35;
+          font-family: Helvetica;
+          font-size: small;
+          color: rgb(255, 255, 255);
+          text-align: left;
+          padding-right: 30px;
+          }
+          .tabela{
+            text-align: left;
+            width: 50%;	
+            border-collapse: collapse;
+            margin: auto;
+            min-width: 300px;
+            margin-top: 50px;
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+            color: black;
+        }
+        .tabela{
+            border-collapse: separate;
+            text-indent: initial;
+            border-spacing: 2px;
+            margin-bottom: 20%;
+        }
+          .classificados {
+            background-color:  blue;
+          }
+          .meiotabela {
+              background-color: gray;
+          }
+          .rebaixados {
+              background-color: red;
+          }
+          #logo{
+            padding-right: 40px;
+          }
+    </style>
+<title>Futebol News</title>
+</head>
+<body>
+<!------------INICIO DO MENU DE NAVEGAÇÃO --------------------->
+<div>
+<nav class="menu">
+<ul>
+    <li><a href="home.html">Notícias</a></li>
+    <li><a href="#">Campeonatos</a>
+        <ul>
+            <li><a href="serieA.html">Série A</a></li>
+            <li><a href="serieB.html">Série B</a></li>
+  <li><a href="copadobrasil.html">Copa do Brasil</a></li>
+  <li><a href="estadual.html">Estadual</a></li>
+        </ul>
+    </li>
+    <li><a href="#">Times</a>
+        <ul>
+          <li><a href="https://www.botafogo.com.br/futebol.php">Botafogo</a></li>
+          <li><a href="https://www.fluminense.com.br/noticias">Fluminense</a></li>
+          <li><a href="https://www.flamengo.com.br/noticias/futebol">Flamengo</a></li>
+          <li><a href="https://vasco.com.br/noticias/">Vasco</a></li>
+        </ul>
+    </li>
+    <li><a href="contato.html">Contato</a></li>
+</ul>
+</nav>
+</div>
+<H1><img id="logo" src="imagens/campcarioca1.jpg" widht="70" height="70px">ESTADUAL RJ</H1> 
+  <table class="tabela">
+    <tr>
+        <td>Col</td>
+        <td>Times</td>
+        <td>J</td>
+        <td>P</td>
+        <td>V</td>
+        <td>SG</td>
+    </tr>
+    <tr class="classificados"> 
+        <td>1°</td>
+      <td>Flamengo</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+    </tr>
+    <tr class="classificados">
+      <td>2°</td>
+        <td>Fluminense</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+    </tr>
+    <tr class="classificados"> 
+      <td>3°</td>
+        <td>Vasco</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+    </tr>
+    <tr class="classificados">
+      <td>4°</td>
+      <td>Botafogo</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td> 
+    </tr>
+     <tr class="meiotabela">
+     <td>5°</td>
+      <td>Boavista</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr class="meiotabela">
+      <td>6°</td>
+      <td>Madureira</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td> 
+      <td>0</td>
+    </tr>
+    <tr class="meiotabela">
+      <td>7°</td>
+      <td>America-RJ</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr class="meiotabela">
+      <td>8°</td>
+      <td>Bangu</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr class="meiotabela">
+      <td>9°</td>
+      <td>Cabofriense</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+      <tr class="meiotabela">
+        <td>10°</td>
+      <td>Macaé</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      </tr>
+      <tr class="rebaixados">
+        <td>11°</td>
+      <td>Bonsucesso</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr class="rebaixados">
+      <td>12°</td>
+      <td>Volta Redonda</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+</table>
+<!------------FOOTER -------------------->
+<div class="rodape">
+  <footer>
+    <img src="../Projeto Final/imagens/paz1.png" width="250px" height="250px">
+      <p>&copy; Todos os direitos reservados</p>
+  </footer>
+  </div>
+  </body>
+  </html>
